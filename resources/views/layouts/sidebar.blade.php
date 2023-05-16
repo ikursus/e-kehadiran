@@ -51,4 +51,18 @@
             <span>Profile</span></a>
     </li>
 
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('change.language') }}?lang=my">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Bahasa Melayu</span></a>
+    </li>
+
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('change.language') }}?lang=en">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>English</span></a>
+    </li>
+
 </ul>

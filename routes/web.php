@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\HomepageController;
-use App\Http\Controllers\KehadiranController;
-use App\Http\Controllers\ProfileController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KehadiranController;
+use App\Http\Controllers\Auth\LoginController;
 
 Route::get('/', [HomepageController::class, 'welcome']);
 
@@ -27,3 +28,19 @@ Route::get('kehadiran/{id}', [KehadiranController::class, 'show'])->name('kehadi
 
 Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
 Route::patch('profile', [ProfileController::class, 'update'])->name('profile.update');
+
+
+
+Route::get('switch', function (Request $request) {
+
+    $lang = $request->input('lang');
+
+    $lang == 'en' ? App::setLocale('en') : App::setLocale('my');
+
+    $locale = App::currentLocale();
+
+    dd($locale);
+
+    return redirect()->back();
+
+})->name('change.language');
