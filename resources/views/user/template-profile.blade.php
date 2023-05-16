@@ -15,6 +15,16 @@
 
         <div class="col-lg-12 mb-4">
 
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
             <!-- Approach -->
             <form method="POST" action="{{ route('profile.update') }}" enctype="multipart/form-data">
             @csrf
@@ -32,7 +42,7 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="email" class="form-control" name="email" placeholder="Alamat emel">
+                        <input type="text" class="form-control" name="email" placeholder="Alamat emel">
                     </div>
 
                     <div class="form-group">
@@ -45,7 +55,7 @@
                     </div>
 
                     <div class="form-group">
-                        <textarea class="form-control" name="alamat">Alamat surat menyurat</textarea>
+                        <textarea class="form-control" name="alamat" placeholder="Alamat surat menyurat"></textarea>
                     </div>
 
                     <input type="file" name="gambar">
