@@ -52,7 +52,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">TINDAKAN:</h6>
                 <a class="collapse-item" href="<?php echo route('users.index'); ?>">Senarai</a>
-                <a class="collapse-item" href=" {{ route('users.create') }}">Tambah</a>
+                <a class="collapse-item" href="{{ route('users.create') }}">Tambah</a>
             </div>
         </div>
     </li>

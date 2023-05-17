@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Pengurusan;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
@@ -44,7 +45,8 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        return view('pengurusan.users.edit');
+        $user = DB::table('users')->where('id', $id)->first();
+        return view('pengurusan.users.edit', compact('user'));
     }
 
     /**

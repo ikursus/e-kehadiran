@@ -32,7 +32,7 @@ Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
 Route::patch('profile', [ProfileController::class, 'update'])->name('profile.update');
 
 Route::get('users', [UserController::class, 'index'])->name('users.index');
-Route::get('users/add', [UserController::class, 'create'])->name('users.create');
+Route::get('users/create', [UserController::class, 'create'])->name('users.create');
 Route::post('users/add', [UserController::class, 'store'])->name('users.store');
 Route::get('users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
 Route::patch('users/{id}/edit', [UserController::class, 'update'])->name('users.update');
