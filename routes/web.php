@@ -8,8 +8,10 @@ use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KehadiranController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Pengurusan\UserController;
 
-Route::get('/', [HomepageController::class, 'welcome']);
+//Route::get('/', [HomepageController::class, 'welcome']);
+Route::redirect('/', '/login');
 
 // Jika dalam 1 controller ada lebih daripada 1 funtion,
 // Kita perlu maklumkan nama controller dan nama function/method
@@ -28,6 +30,13 @@ Route::get('kehadiran/{id}', [KehadiranController::class, 'show'])->name('kehadi
 
 Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
 Route::patch('profile', [ProfileController::class, 'update'])->name('profile.update');
+
+Route::get('users', [UserController::class, 'index'])->name('users.index');
+Route::get('users/add', [UserController::class, 'create'])->name('users.create');
+Route::post('users/add', [UserController::class, 'store'])->name('users.store');
+Route::get('users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
+Route::patch('users/{id}/edit', [UserController::class, 'update'])->name('users.update');
+Route::delete('users', [UserController::class, 'destroy'])->name('users.destroy');
 
 
 

@@ -42,6 +42,8 @@
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
 
+                                    @include('layouts.alerts')
+
                                     <form class="user" method="POST" action="{{ route('login.authenticate') }}">
 
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -50,13 +52,13 @@
 
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
-                                                name="email_login"
+                                                name="email"
                                                 placeholder="Enter Email Address...">
                                         </div>
 
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                name="password_login" placeholder="Password">
+                                                name="password" placeholder="Password">
                                         </div>
 
                                         <div class="form-group">
