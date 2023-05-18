@@ -15,7 +15,7 @@
         <div class="col-lg-12 mb-4">
 
             <!-- Approach -->
-            <form method="POST" action="{{ route('users.store') }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('pengurusan.users.store') }}" enctype="multipart/form-data">
             @csrf
 
             <div class="card shadow mb-4">
@@ -28,7 +28,7 @@
 
                 </div>
                 <div class="card-footer">
-                    <a href="{{ route('users.index') }}" class="btn btn-light mr-2">Kembali</a>
+                    <a href="{{ route('pengurusan.users.index') }}" class="btn btn-light mr-2">Kembali</a>
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
             </div>

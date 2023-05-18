@@ -39,7 +39,6 @@
                         <tbody>
                             @foreach ($senaraiKehadiran as $kehadiran)
                             <tr>
-                                {{-- ini komen --}}
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $kehadiran->user_id }}</td>
                                 <td>{{ $kehadiran->tarikh_kehadiran }}</td>

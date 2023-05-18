@@ -7,7 +7,7 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Senarai Users</h1>
-        <a href="{{ route('users.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+        <a href="{{ route('pengurusan.users.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-user-plus fa-sm text-white-50"></i> Tambah User</a>
     </div>
 
@@ -23,6 +23,8 @@
                 </div>
                 <div class="card-body">
 
+                    @include('layouts.alerts')
+
                     <table class="table">
                         <thead>
                             <tr>
@@ -34,7 +36,39 @@
                                 <th>TINDAKAN</th>
                             </tr>
                         </thead>
+
                         <tbody>
+
+                            @foreach ($senaraiUsers as $user)
+
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $user->nama }}</td>
+                                <td>{{ $user->email }}</td>
+                                <td>{{ $user->telefon }}</td>
+                                <td>{{ $user->alamat }}</td>
+                                <td>
+
+                                    <a href="{{ route('pengurusan.users.show', $user->id) }}" class="btn btn-primary btn-sm">
+                                        Semak Kehadiran
+                                    </a>
+
+                                    <a href="{{ route('pengurusan.users.edit', $user->id) }}" class="btn btn-info btn-sm">
+                                        Edit
+                                    </a>
+
+                                    <form method="POST" action="{{ route('pengurusan.users.destroy', $user->id) }}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm">
+                                            Delete
+                                        </button>
+                                    </form>
+
+                                </td>
+                            </tr>
+
+                            @endforeach
 
                         </tbody>
                     </table>

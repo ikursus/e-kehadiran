@@ -6,7 +6,7 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Tambah User Baru</h1>
+        <h1 class="h3 mb-0 text-gray-800">Kemaskini User</h1>
     </div>
 
     <!-- Content Row -->
@@ -15,7 +15,7 @@
         <div class="col-lg-12 mb-4">
 
             <!-- Approach -->
-            <form method="POST" action="{{ route('users.update', $user->id) }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('pengurusan.users.update', $user->id) }}" enctype="multipart/form-data">
             @csrf
             @method('PATCH')
 
@@ -25,11 +25,13 @@
                 </div>
                 <div class="card-body">
 
+                    @include('layouts.alerts')
+
                     @include('pengurusan.users.form')
 
                 </div>
                 <div class="card-footer">
-                    <a href="{{ route('users.index') }}" class="btn btn-light mr-2">Kembali</a>
+                    <a href="{{ route('pengurusan.users.index') }}" class="btn btn-light mr-2">Kembali</a>
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
             </div>

@@ -23,20 +23,20 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        MENU
+        MENU PENGURUSAN
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseKehadiran"
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePengurusanKehadiran"
             aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-cog"></i>
             <span>Kehadiran</span>
         </a>
-        <div id="collapseKehadiran" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapsePengurusanKehadiran" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">TINDAKAN:</h6>
-                <a class="collapse-item" href="<?php echo route('kehadiran.index'); ?>">Senarai</a>
+                <a class="collapse-item" href="{{ route('pengurusan.kehadiran.index') }}">Senarai</a>
             </div>
         </div>
     </li>
@@ -51,14 +51,34 @@
         <div id="collapseUsers" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">TINDAKAN:</h6>
-                <a class="collapse-item" href="<?php echo route('users.index'); ?>">Senarai</a>
-                <a class="collapse-item" href="{{ route('users.create') }}">Tambah</a>
+                <a class="collapse-item" href="<?php echo route('pengurusan.users.index'); ?>">Senarai</a>
+                <a class="collapse-item" href="{{ route('pengurusan.users.create') }}">Tambah</a>
             </div>
         </div>
     </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        MENU PENGGUNA
+    </div>
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseKehadiran"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Rekod Kehadiran</span>
+        </a>
+        <div id="collapseKehadiran" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">TINDAKAN:</h6>
+                <a class="collapse-item" href="{{ route('kehadiran.index') }}">Senarai</a>
+            </div>
+        </div>
+    </li>
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">

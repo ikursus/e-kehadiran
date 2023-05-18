@@ -37,5 +37,26 @@ class UserSeeder extends Seeder
         $user->telefon = '0123456789';
         $user->alamat = 'No 987 Taman Puchong Permai Selangor';
         $user->save();
+
+        // User 3
+        DB::table('users')->insert([
+            'nama' => 'Siti',
+            'email' => 'siti@gmail.com',
+            // 'password' => Hash::make('1234')
+            'password' => bcrypt('1234'),
+            'telefon' => '0123456789',
+            'alamat' => 'No 123, Taman Puchong Selangor',
+        ]);
+
+        // User 4
+        DB::table('users')->insert([
+            'nama' => 'Upin',
+            'email' => 'upin@gmail.com',
+            // 'password' => Hash::make('1234')
+            'password' => bcrypt('1234'),
+            'telefon' => '0123456789',
+            'alamat' => 'No 123, Taman Puchong Selangor',
+        ]);
+
     }
 }

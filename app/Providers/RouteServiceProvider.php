@@ -35,6 +35,11 @@ class RouteServiceProvider extends ServiceProvider
 
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
+
+            Route::middleware('web', 'auth')
+                ->prefix('pengurusan') // letakkan prefix /pengurusan pada setiap alamat route
+                ->name('pengurusan.') // Letakkan prefix pengurusan. pada setiap name route
+                ->group(base_path('routes/pengurusan.php'));
         });
     }
 }

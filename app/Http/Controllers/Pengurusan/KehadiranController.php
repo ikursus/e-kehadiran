@@ -2,10 +2,20 @@
 
 namespace App\Http\Controllers\Pengurusan;
 
-use App\Http\Controllers\Controller;
+use App\Models\Kehadiran;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class KehadiranController extends Controller
 {
-    //
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        //$senaraiKehadiran = DB::table('kehadiran')->get();
+        $senaraiKehadiran = Kehadiran::get();
+
+        return view('pengurusan.kehadiran.index', compact('senaraiKehadiran'));
+    }
 }

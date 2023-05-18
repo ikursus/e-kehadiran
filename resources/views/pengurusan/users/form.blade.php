@@ -6,21 +6,21 @@
 </div>
 
 <div class="form-group">
-    <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Alamat emel" required value="{{ isset($user) ? $user->email : old('email') }}">
+    <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Alamat emel"  value="{{ isset($user) ? $user->email : old('email') }}">
     @error('email')
     <span class="invalid-feedback">{{ $message }}</span>
     @enderror
 </div>
 
 <div class="form-group">
-    <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Katalaluan" required>
+    <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Katalaluan">
     @error('password')
     <span class="invalid-feedback">{{ $message }}</span>
     @enderror
 </div>
 
 <div class="form-group">
-    <input type="password" class="form-control" name="password_confirmation" placeholder="Pengesahan Katalaluan" required>
+    <input type="password" class="form-control" name="password_confirmation" placeholder="Pengesahan Katalaluan">
     <span class="text-muted">Sila ulang taip password untuk pengesahan (jika membuat pertukaran)</span>
 </div>
 

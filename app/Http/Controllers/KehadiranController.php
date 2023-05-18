@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kehadiran;
 use Illuminate\Http\Request;
 
 class KehadiranController extends Controller
@@ -11,7 +12,10 @@ class KehadiranController extends Controller
      */
     public function index()
     {
-        return view('user.kehadiran.index');
+        //$senaraiKehadiran = DB::table('kehadiran')->get();
+        $senaraiKehadiran = Kehadiran::get();
+
+        return view('user.kehadiran.index', compact('senaraiKehadiran'));
     }
 
     public function show($id)
