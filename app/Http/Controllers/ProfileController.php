@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProfileUpdate;
 use Illuminate\Validation\Rules\Password;
@@ -15,16 +16,23 @@ class ProfileController extends Controller
 
     public function update(ProfileUpdate $request)
     {
-        // $request->validate([
-        //     // 'nama' => 'required|min:3|string',
-        //     // 'email' => 'required|email'
-        //     'nama' => ['required', 'min:3', 'string'],
-        //     'email' => ['required', 'email:filter'],
-        //     'gambar' => ['required', 'mimes:jpg,png'],
-        //     'password' => ['confirmed', Password::min(4)]
-        // ]);
+        $profile = User::find(auth()->id());
 
+        $data = $request->except('password');
 
-        dd($request->all());
+        if($request->hasFile('gambar'))
+        {
+            $file = $request->file('gambar');
+            // Upload gambar ke dalam direectory profile yang berada di folder public/uploaded
+            //'public_upload' ini adalah merupakan setting dalam filesystems.php
+            // Setkan nama file yang diupload kepad $filename
+            $filename = $file->store( 'profile' ,'public_upload');
+
+            $data['gambar'] = $filename;
+        }
+
+        $profile->update($data);
+
+        return redirect()->back();
     }
 }

@@ -14,7 +14,7 @@ class KehadiranController extends Controller
     public function index()
     {
         //$senaraiKehadiran = DB::table('kehadiran')->get();
-        $senaraiKehadiran = Kehadiran::paginate(10);
+        $senaraiKehadiran = Kehadiran::with('pengguna')->paginate(10);
 
         return view('pengurusan.kehadiran.index', compact('senaraiKehadiran'));
     }
