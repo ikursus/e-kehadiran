@@ -1,6 +1,5 @@
 @extends('layouts.induk')
 
-
 @section('page-content')
 <!-- Begin Page Content -->
 <div class="container-fluid">
@@ -63,7 +62,7 @@
 
                         @csrf
 
-                        <button type="submit" class="btn btn-warning btn-block">
+                        <button type="submit" class="btn btn-warning btn-block" {{ is_null($currentKehadiran) ? 'disabled' : NULL }}>
                             Punch Out
                         </button>
 

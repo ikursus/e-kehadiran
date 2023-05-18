@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('kehadiran', function (Blueprint $table) {
-            $table->integer('jumlah_bekerja')->default(0)->after('masa_keluar');
+            $table->bigInteger('jumlah_bekerja')->default(0)->after('masa_keluar');
         });
     }
 

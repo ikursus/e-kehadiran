@@ -12,4 +12,14 @@ class Kehadiran extends Model
     // Informasi nama table yang ingin dihubungi
     // (jika ejaan table tak menggunakan plural)
     protected $table = 'kehadiran';
+
+    protected $fillable = [
+        'user_id',
+        'tarikh_kehadiran',
+        'masa_masuk',
+        'masa_keluar',
+        'alasan',
+        'jumlah_bekerja',
+        'status_kelulusan'
+    ];
 }

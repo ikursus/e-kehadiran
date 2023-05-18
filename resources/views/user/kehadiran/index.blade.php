@@ -32,7 +32,7 @@
                                 <th>TARIKH</th>
                                 <th>MASA MASUK</th>
                                 <th>MASA KELUAR</th>
-                                <th>ALASAN</th>
+                                <th>JUMLAH BEKERJA</th>
                                 <th>TINDAKAN</th>
                             </tr>
                         </thead>
@@ -45,11 +45,14 @@
                                 <td>{{ $kehadiran->tarikh_kehadiran }}</td>
                                 <td>{{ $kehadiran->masa_masuk }}</td>
                                 <td>{{ $kehadiran->masa_keluar }}</td>
+                                <td>{{ $kehadiran->jumlah_bekerja }}</td>
                                 <td></td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
+
+                    {{ $senaraiKehadiran->links() }}
 
                 </div>
             </div>

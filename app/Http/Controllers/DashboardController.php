@@ -7,10 +7,12 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    function __invoke() {
+    public function __invoke() {
 
+        // Dapatkan rekod kehadiran terkini untuk aktiviti butang dan timer kehadiran
         $currentKehadiran = Kehadiran::where('user_id', '=', auth()->id())
         ->whereDate('created_at', now())
+        ->whereNull('masa_keluar')
         ->first();
 
         // dd($currentKehadiran);
