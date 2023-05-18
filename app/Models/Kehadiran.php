@@ -22,4 +22,11 @@ class Kehadiran extends Model
         'jumlah_bekerja',
         'status_kelulusan'
     ];
+
+    public function pengguna()
+    {
+        // Relation berlaku diantara colum user_id dalam kehadiran kepada column id di users
+        //return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }

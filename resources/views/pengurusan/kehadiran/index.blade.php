@@ -39,7 +39,7 @@
                             @foreach ($senaraiKehadiran as $kehadiran)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $kehadiran->user_id }}</td>
+                                <td>{{ $kehadiran->pengguna->nama }}</td>
                                 <td>{{ $kehadiran->tarikh_kehadiran }}</td>
                                 <td>{{ $kehadiran->masa_masuk }}</td>
                                 <td>{{ $kehadiran->masa_keluar }}</td>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Pengurusan;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -58,13 +59,17 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        $senaraiKehadiran = DB::table('users')
-        ->join('kehadiran', 'pengurusan.users.id', '=', 'kehadiran.user_id')
-        ->where('pengurusan.users.id', '=', $id)
-        ->select('pengurusan.users.*', 'kehadiran.*')
-        ->get();
+        // Contoh relation diantara table user dan table kehadiran menggunakan Query Builder
+        // $senaraiKehadiran = DB::table('users')
+        // ->join('kehadiran', 'users.id', '=', 'kehadiran.user_id')
+        // ->where('users.id', '=', $id)
+        // ->select('users.*', 'kehadiran.*')
+        // ->get();
+        $user = User::find($id);
 
-        return view('pengurusan.users.show', compact('senaraiKehadiran'));
+
+
+        return view('pengurusan.users.show', compact('user'));
     }
 
     /**

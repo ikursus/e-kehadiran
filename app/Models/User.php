@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'telefon',
+        'alamat'
     ];
 
     /**
@@ -41,4 +43,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    // Function/Method untuk relation diantara table users dan table kehadiran
+    // public function namaRelation()
+    // {
+
+    // }
+    // One to Many Relation
+    public function senaraiKehadiran()
+    {
+        // return $this->hasMany(Kehadiran::class);
+        return $this->hasMany(Kehadiran::class, 'userID');
+    }
 }
