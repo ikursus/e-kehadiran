@@ -32,7 +32,6 @@
                                 <th>TARIKH</th>
                                 <th>MASA MASUK</th>
                                 <th>MASA KELUAR</th>
-                                <th>ALASAN</th>
                                 <th>TINDAKAN</th>
                             </tr>
                         </thead>
@@ -44,7 +43,15 @@
                                 <td>{{ $kehadiran->tarikh_kehadiran }}</td>
                                 <td>{{ $kehadiran->masa_masuk }}</td>
                                 <td>{{ $kehadiran->masa_keluar }}</td>
-                                <td></td>
+                                <td>
+                                    <form method="POST" action="{{ route('pengurusan.kehadiran.destroy', $kehadiran->id) }}">
+                                    @csrf
+                                    @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">
+                                            DELETE
+                                        </button>
+                                    </form>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

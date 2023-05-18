@@ -19,3 +19,4 @@ Route::delete('users/{id}', [UserController::class, 'destroy'])->name('users.des
 
 // Pengurusan kehadiran
 Route::get('kehadiran', [KehadiranController::class, 'index'])->name('kehadiran.index');
+Route::delete('kehadiran/{id}', [KehadiranController::class, 'destroy'])->name('kehadiran.destroy');

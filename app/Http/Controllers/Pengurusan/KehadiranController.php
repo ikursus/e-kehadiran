@@ -18,4 +18,13 @@ class KehadiranController extends Controller
 
         return view('pengurusan.kehadiran.index', compact('senaraiKehadiran'));
     }
+
+    public function destroy($id)
+    {
+        $kehadiran = Kehadiran::find($id); // Kehadiran::findOrFail($id);
+
+        $kehadiran->delete();
+
+        return redirect()->route('pengurusan.kehadiran.index')->with('alert-success', 'Rekod berjaya dipadam');
+    }
 }
