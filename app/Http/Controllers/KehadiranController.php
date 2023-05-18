@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Kehadiran;
 use Illuminate\Http\Request;
+use App\Mail\PunchinNotification;
+use Illuminate\Support\Facades\Mail;
 
 class KehadiranController extends Controller
 {
@@ -23,6 +25,7 @@ class KehadiranController extends Controller
         return view('user.kehadiran.index', compact('senaraiKehadiran'));
     }
 
+
     /**
      * Show the form for creating a new resource.
      */
@@ -34,6 +37,10 @@ class KehadiranController extends Controller
         $kehadiran->tarikh_kehadiran = now();
         $kehadiran->masa_masuk = now();
         $kehadiran->save();
+
+
+        // Hantar email notifikasi kepada user yang punch in
+        Mail::to(auth()->user()->email)->send(new PunchinNotification($kehadiran));
 
         // Cara 2 simpan data menggunakan model create method
         // Kehadiran::create([
