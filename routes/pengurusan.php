@@ -6,6 +6,8 @@ use App\Http\Controllers\Pengurusan\KehadiranController;
 
 //Route::group(['prefix' => 'pengurusan'], function() {
 
+//});
+
 // Pengurusan Users
 Route::get('users', [UserController::class, 'index'])->name('users.index');
 Route::get('users/add', [UserController::class, 'create'])->name('users.create');
@@ -17,5 +19,3 @@ Route::delete('users/{id}', [UserController::class, 'destroy'])->name('users.des
 
 // Pengurusan kehadiran
 Route::get('kehadiran', [KehadiranController::class, 'index'])->name('kehadiran.index');
-
-//});

@@ -105,6 +105,8 @@
     {{-- <script src="themes/sbadmin2/js/demo/chart-pie-demo.js"></script> --}}
     <script src="{{ asset('/themes/sbadmin2') }}/js/demo/chart-pie-demo.js"></script>
 
+    @stack('script')
+
 </body>
 
 </html>

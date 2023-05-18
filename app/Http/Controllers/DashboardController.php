@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kehadiran;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
     function __invoke() {
 
-        $name = session('username');
-        $email = 'test@gmail.com';
-        $tajuk = '<script>alert("Dashboard");</script>';
+        $currentKehadiran = Kehadiran::where('user_id', '=', auth()->id())
+        ->whereDate('created_at', now())
+        ->first();
+
+        // dd($currentKehadiran);
 
         // Cara 1 passing data ke template
         // return view('user.template-dashboard')->with('name', $name)->with('email', $email);
@@ -19,6 +22,6 @@ class DashboardController extends Controller
         // return view('user.template-dashboard', ['name' => $name, 'email' => $email]);
 
         // Cara 3 passing data ke template
-        return view('user.template-dashboard', compact('name', 'email', 'tajuk'));
+        return view('user.template-dashboard', compact('currentKehadiran'));
     }
 }

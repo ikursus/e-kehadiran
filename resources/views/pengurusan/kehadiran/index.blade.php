@@ -50,6 +50,8 @@
                         </tbody>
                     </table>
 
+                    {{ $senaraiKehadiran->links() }}
+
                 </div>
             </div>
 
