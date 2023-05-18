@@ -32,7 +32,7 @@
                                 <th>TARIKH</th>
                                 <th>MASA MASUK</th>
                                 <th>MASA KELUAR</th>
-                                <th>JUMLAH BEKERJA</th>
+                                <th>JUMLAH BEKERJA (MINIT)</th>
                                 <th>TINDAKAN</th>
                             </tr>
                         </thead>
@@ -46,7 +46,17 @@
                                 <td>{{ $kehadiran->masa_masuk }}</td>
                                 <td>{{ $kehadiran->masa_keluar }}</td>
                                 <td>{{ $kehadiran->jumlah_bekerja }}</td>
-                                <td></td>
+                                <td>
+                                    <form method="POST" action="{{ route('kehadiran.punchout') }}">
+
+                                        @csrf
+
+                                        <button type="submit" class="btn btn-warning sm" {{ !is_null($kehadiran->masa_keluar) ? 'disabled' : NULL }}>
+                                            Punch Out
+                                        </button>
+
+                                    </form>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
